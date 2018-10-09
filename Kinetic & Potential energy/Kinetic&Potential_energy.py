@@ -5,6 +5,7 @@ Created on Tue Oct  9 17:43:54 2018
 
 @author: cnkndmr
 """
+# In[1]
 import matplotlib.pyplot as plt
 
 def potential_energy(h, m=1, g=9.81):
@@ -17,7 +18,7 @@ def plot_print(x, y):
     plt.plot(x, y)
     plt.show()
     
-#ln[1]
+# In[2]
 pe = []
 height = 60
 
@@ -35,9 +36,9 @@ for i in pe:
     
 plot_print(pe_time,potential_energy)
 
-
-velocity = 100
+# In[3]
 ke = []
+velocity = 100
 
 for i in range(velocity+1):
     temp_tuple = ()
