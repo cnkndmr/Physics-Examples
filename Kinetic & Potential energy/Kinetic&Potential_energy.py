@@ -16,7 +16,19 @@ def kinetic_energy(v, m=1):
 
 def plot_print(x, y):
     plt.plot(x, y)
-    plt.show()
+    return plt.show()
+    
+#def tuple_to_list(a, b, c):
+#    for i in range(a+1):
+#        temp_tuple = ()
+#        temp_tuple += (b(i),i)
+#        c.append(temp_tuple)
+#    return
+
+def tuple_to_list(a,b,c):
+    for i in a:
+        b.append(i[0])
+        c.append(i[1])
     
 # In[2]
 pe = []
@@ -30,9 +42,7 @@ for i in range(height+1):
 potential_energy = []
 pe_time = []
 
-for i in pe:
-    potential_energy.append(i[0])
-    pe_time.append(i[1])
+tuple_to_list(pe,potential_energy,pe_time)
     
 plot_print(pe_time,potential_energy)
 
@@ -48,8 +58,6 @@ for i in range(velocity+1):
 kinetic_energy = []
 ke_time = []
 
-for i in ke:
-    kinetic_energy.append(i[0])
-    ke_time.append(i[1])
+tuple_to_list(ke,kinetic_energy,ke_time)
 
 plot_print(ke_time,kinetic_energy)
