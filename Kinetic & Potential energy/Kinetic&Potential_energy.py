@@ -18,26 +18,24 @@ def plot_print(x, y):
     plt.plot(x, y)
     return plt.show()
     
-#def tuple_to_list(a, b, c):
-#    for i in range(a+1):
-#        temp_tuple = ()
-#        temp_tuple += (b(i),i)
-#        c.append(temp_tuple)
-#    return
-
 def tuple_to_list(a,b,c):
     for i in a:
         b.append(i[0])
         c.append(i[1])
+    return
+
+def append_tuple_to_list(a,b,c):
+    for i in range(a+1):
+        temp_tuple = ()
+        temp_tuple += (b(i),i)
+        c.append(temp_tuple)
+    return
     
 # In[2]
 pe = []
 height = 60
 
-for i in range(height+1):
-    temp_tuple = ()
-    temp_tuple += (potential_energy(i),i)
-    pe.append(temp_tuple) 
+append_tuple_to_list(height, potential_energy, pe)
 
 potential_energy = []
 pe_time = []
@@ -50,10 +48,7 @@ plot_print(pe_time,potential_energy)
 ke = []
 velocity = 100
 
-for i in range(velocity+1):
-    temp_tuple = ()
-    temp_tuple += (kinetic_energy(i),i)
-    ke.append(temp_tuple)
+append_tuple_to_list(velocity, kinetic_energy, ke)
 
 kinetic_energy = []
 ke_time = []
