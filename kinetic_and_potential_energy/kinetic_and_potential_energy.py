@@ -3,13 +3,20 @@
 """
 Created on Tue Oct  9 17:43:54 2018
 
-@author: cnkndmr
+@author: M. Can Kandemir
 """
 # In[1]
 
+# Import path for library functions.
+
+import sys
+
+sys.path.insert(0, "../src")
+
 from phys_lib import *
-    
+        
 # In[2]
+
 pe = []
 height = 60
 
@@ -23,6 +30,7 @@ tuple_to_list(pe,potential_energy,pe_time)
 plot_print(pe_time,potential_energy)
 
 # In[3]
+
 ke = []
 velocity = 100
 
