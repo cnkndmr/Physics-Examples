@@ -15,9 +15,10 @@ if "2.1" in problems:
     
     A=((6.25*m/s)*4*s)
     
-    print("Q:", Q, 
-          "\nA:", A)
+    print("Q:\n", Q, 
+          "\nA:\n", A)
     
 if "2.2" in problems:
     
-    print(" Q:", "\n", "A:", ())
+    print("Q:\n", Q, 
+          "\nA:\n", A)
