@@ -12,19 +12,6 @@ from sympy.physics.units import *
 from sympy import * # Added for import units
 
 def potential_energy(h, m=1*kilogram, g=9.81*meter/second**2):
-    """Reference: https://butterflyofdream.wordpress.com/
-    
-    Parameters
-    ==========
-    **kwargs
-    output_style : display, pprint, print, latex
-    
-    Examples
-    ========
-    pprints("f(x)",f,
-            "collect(f,x)=",collect(f,x),
-            output_style="pprint")
-    """
     res = m*g*h
     return convert_to(res, joule)
 
