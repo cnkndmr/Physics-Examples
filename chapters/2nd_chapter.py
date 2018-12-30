@@ -10,25 +10,39 @@ problems=problems["ch2"][0]
 
 
 if "2.1" in problems:
-    m, s= symbols('m s')
-    Q="A car travels in the x-direction on a straight and level road. For the first 4.00 s of its motion, the average velocity of the car is v av-x = 6.25 m/s . How far does the car travel in 4.00 s?"
-    
-    A=((6.25*m/s)*4*s)
-    
-    pprints("Q:", Q,
-            "A:", A)
+    print("Problem 2.1")
+    Vavx = 6.25*meter/second
+    deltat = (25*meter)/Vavx
+    deltax = Vavx*deltat
+    A = Vavx*deltat
+    pprints("A:\n", A)
     
 if "2.2" in problems:
-    
-    Q="In an experiment, a shearwater (a seabird) was taken from its nest, flown 5150 km away, and released. The bird found its way back to its nest 13.5 days after release. If we place the origin in the nest and extend the +x-axis to the release point, what was the bird’s average velocity in m/s (a) for the return flight, and (b) for the whole episode, from leaving the nest to returning?"
-    
-    pprint("Q:\n", Q, 
-          "\nA:\n", A)
-    
+    print("Problem 2.2")
+    x1 = 0
+    x2 = 5.15*10**6*meter
+    t1 = 0
+    t2 = 1.166*10**6*second
+    deltat = t2-t1
+    deltax = x2-x1
+    Vavx = deltax/deltat
+    A = convert_to(Vavx, kilometer/hour)
+#    A = vavx
+    pprints("A:\n", A)
+
 if "2.3" in problems:
+    print("Problem 2.3")
+    Vavx = 105*kilometer/hour
+    deltat = 140*minute
+    deltax = Vavx*deltat
+    Vavx2 = 70*kilometer/hour
+    A = deltat2 = deltax/Vavx2
+    pprints("A:\n", A)
     
-    A=kinetic_energy(4,7)
-    
-    B=potential_energy(8,9)
-    
-    pprints(A,B)
+if "2.4" in problems:
+    print("Problem 2.4")
+    erDeltax = 200*meter
+    erVavx = 5*meter/second
+    erT = deltax/Vavx
+    wrDeltax = 280*meter
+    wrVavx = 4*meter/second
