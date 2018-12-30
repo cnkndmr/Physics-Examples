@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
+# Author: M. Can Kandemir
+# Contact: cnkndmr@gmail.com
 
 import sys
 sys.path.insert(0, '../src/')
 
 from physics_lib import *
 
-problems=dict(ch2=["2.1", "2.2", "2.3"])
-problems=problems["ch2"][0]
-
+problems=dict(ch2=["2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8", "2.9", "2.10", "2.11", "2.12", "2.13", "2.14", "2.15", "2.16", "2.17", "2.18", "2.19"])
+problems=problems["ch2"][3]
 
 if "2.1" in problems:
     print("Problem 2.1")
@@ -42,7 +43,17 @@ if "2.3" in problems:
 if "2.4" in problems:
     print("Problem 2.4")
     erDeltax = 200*meter
-    erVavx = 5*meter/second
-    erT = deltax/Vavx
+    erVav = 5*meter/second
+    erT = erDeltax/erVav
     wrDeltax = 280*meter
-    wrVavx = 4*meter/second
+    wrVav = 4*meter/second
+    wrT = wrDeltax/wrVav
+    tTotal = erT+wrT
+    Vav = (erDeltax+wrDeltax)/tTotal
+    A = Vav
+    deltax = erDeltax-wrDeltax
+    wrVav = deltax/tTotal
+    B = wrVav
+    
+    pprints("A:\na)\n", A, 
+           "b)\n", B)
