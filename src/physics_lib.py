@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Author: M. Can Kandemir
+# Contact: cnkndmr@gmail.com
 
 import matplotlib.pyplot as plt
 #from sympy import pprint
