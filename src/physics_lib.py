@@ -1,16 +1,34 @@
 # -*- coding: utf-8 -*-
 
 import matplotlib.pyplot as plt
-from sympy import pprint
-from IPython import get_ipython
-from IPython.display import display, HTML, Latex, Math
-from sympy.interactive import printing
+#from sympy import pprint
+#from IPython import get_ipython
+#from IPython.display import display, HTML, Latex, Math
+#from sympy.interactive import printing
+#from sympy import symbols
+from sympy.physics.units import *
+from sympy import * # Added for import units
 
-def potential_energy(h, m=1, g=9.81):
-    return m*g*h
+def potential_energy(h, m=1*kilogram, g=9.81*meter/second**2):
+    """Reference: https://butterflyofdream.wordpress.com/
+    
+    Parameters
+    ==========
+    **kwargs
+    output_style : display, pprint, print, latex
+    
+    Examples
+    ========
+    pprints("f(x)",f,
+            "collect(f,x)=",collect(f,x),
+            output_style="pprint")
+    """
+    res = m*g*h
+    return convert_to(res, joule)
 
-def kinetic_energy(v, m=1):
-    return (1/2)*m*v**2
+def kinetic_energy(v, m=1*kilogram):
+    res = (1/2)*m*v**2
+    return convert_to(res, joule)
 
 def plot_print(x, y):
     plt.plot(x, y)
@@ -28,8 +46,6 @@ def append_tuple_to_list(a,b,c):
         temp_tuple += (b(i),i)
         c.append(temp_tuple)
     return
-
-
 
 def pprints(func, *funcs, **kwargs):
     """Reference: https://butterflyofdream.wordpress.com/
