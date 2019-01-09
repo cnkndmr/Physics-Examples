@@ -10,9 +10,9 @@ sys.path.insert(0, '../src/')
 from physics_lib import *
 
 problems=dict(ch2=["2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8", "2.9", "2.10", "2.11", "2.12", "2.13", "2.14", "2.15", "2.16", "2.17", "2.18", "2.19"])
-problems=problems["ch2"][6]
+problems=problems["ch2"][8]
 
-# TODO 2.6
+# TODO 2.6, 2.8(wrong result)
 
 if "2.1" in problems:
     print("Problem 2.1")
@@ -103,6 +103,7 @@ if "2.7" in problems:
     Vt0 = v(t0)
     Vt1 = v(t1)
     Vt2 = v(t2)
+    t = Symbol('t')
     t3 = solve(2*b*t - 3*c*t**2, t)[1]
     t30 = t3-t0
     pprints("A:\na)\n", Vavx20,
@@ -113,8 +114,24 @@ if "2.7" in problems:
     
 if "2.8" in problems:
     print("Problem 2.8")
+    t = Symbol('t')
     def x(t):
-        return 28*meter + 12.4*meter/second*(t*second) - 0.045*meter/second**3*(t*second)**3
+        return 28*meter + 12.4*meter/second*t - 0.045*meter/second**3*t**3
     def v(t):
-        return diff(x(t),t)
-    print(Derivative(x(t), second).doit())
+        return 12.4*meter/second*diff(t,t) - 0.045*meter/second**3*diff(t**3, t)
+    pprints("A:\na)\n", v(8*second))
+    
+if "2.9" in problems:
+    print("Problem 2.9")
+    t0 = 0
+    t1 = 2*second
+    t2 = 3*second
+    v1 = 2*meter/second
+    v2 = 3*meter/second
+    x1 = v1*(t1-t0)
+    x2 = v2*(t2-t1)
+    Vavx = (x1+x2)/(t2)
+    x3 = -(v2)*(t2-t1)
+    Vavx2 = (x1+x3)/(t2)
+    pprints("A:\na)\n", Vavx,
+           "\nb)", Vavx2)
