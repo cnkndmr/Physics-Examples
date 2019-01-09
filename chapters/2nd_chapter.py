@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-# Author: M. Can Kandemir
-# Contact: cnkndmr@gmail.com
+"""
+Author: M. Can Kandemir
+Contact: cnkndmr@gmail.com
+"""
 
 import sys
 sys.path.insert(0, '../src/')
@@ -8,7 +10,9 @@ sys.path.insert(0, '../src/')
 from physics_lib import *
 
 problems=dict(ch2=["2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8", "2.9", "2.10", "2.11", "2.12", "2.13", "2.14", "2.15", "2.16", "2.17", "2.18", "2.19"])
-problems=problems["ch2"][3]
+problems=problems["ch2"][6]
+
+# TODO 2.6
 
 if "2.1" in problems:
     print("Problem 2.1")
@@ -37,23 +41,80 @@ if "2.3" in problems:
     deltat = 140*minute
     deltax = Vavx*deltat
     Vavx2 = 70*kilometer/hour
-    A = deltat2 = deltax/Vavx2
-    pprints("A:\n", A)
+    pprints("A:\n", deltax/Vavx2)
     
 if "2.4" in problems:
     print("Problem 2.4")
-    erDeltax = 200*meter
-    erVav = 5*meter/second
-    erT = erDeltax/erVav
-    wrDeltax = 280*meter
-    wrVav = 4*meter/second
-    wrT = wrDeltax/wrVav
-    tTotal = erT+wrT
-    Vav = (erDeltax+wrDeltax)/tTotal
-    A = Vav
-    deltax = erDeltax-wrDeltax
-    wrVav = deltax/tTotal
-    B = wrVav
+    eDeltax = 200*meter
+    eVav = 5*meter/second
+    eT = eDeltax/eVav
+    wDeltax = 280*meter
+    wVav = 4*meter/second
+    wT = wDeltax/wVav
+    tTotal = eT+wT
+    Vav = (eDeltax+wDeltax)/tTotal
+    deltax = eDeltax-wDeltax
+    wVav = deltax/tTotal
+    pprints("A:\na)\n", Vav, 
+           "b)\n", wVav)
     
-    pprints("A:\na)\n", A, 
-           "b)\n", B)
+if "2.5" in problems:
+    print("Problem 2.5")
+    x1 = 40*meter
+    x2 = 60*meter
+    deltax = x2-x1
+    t1 = 28*second
+    t2 = 36*second
+    deltat = t1+t2
+    Vavx = deltax/deltat
+    sumX = x1+x2
+    Vav = sumX/deltat
+    pprints("A:\na)\n", Vavx, 
+           "b)\n", Vav)
+    
+if "2.6" in problems:
+    print("Problem 2.6")
+    def x(t):
+        alpha = 1.5*meter/second**2
+        beta = -0.05*meter/second**3
+        return alpha*t**2+beta*t**3
+    t0 = 0
+    t1 = 2*second
+    t2 = 4*second
+    Vavx1 = (x(t1)-0)/(t1)
+    Vavx2 = (x(t2)-0)/(t2)
+    Vavx21 = (x(t2)-x(t1))/(t2-t1)
+    pprints("A:\na)\n", Vavx1, 
+           "b)\n", Vavx2,
+            "c)\n", Vavx21)
+        
+if "2.7" in problems:
+    print("Problem 2.7")
+    b = 2.4*meter/second**2
+    c = 0.12*meter/second**3
+    def x(t):
+        return b*t**2 - c*t**3
+    def v(t):
+        return 2*b*t - 3*c*t**2
+    t0 = 0
+    t1 = 5*second
+    t2 = 10*second
+    Vavx20 = (x(t2)-x(t0))/(t2-t0)
+    Vt0 = v(t0)
+    Vt1 = v(t1)
+    Vt2 = v(t2)
+    t3 = solve(2*b*t - 3*c*t**2, t)[1]
+    t30 = t3-t0
+    pprints("A:\na)\n", Vavx20,
+            "b1)\n", Vt0,
+            "b2)\n", Vt1,
+            "b3)\n", Vt2,
+            "c)\n", t30)
+    
+if "2.8" in problems:
+    print("Problem 2.8")
+    def x(t):
+        return 28*meter + 12.4*meter/second*(t*second) - 0.045*meter/second**3*(t*second)**3
+    def v(t):
+        return diff(x(t),t)
+    print(Derivative(x(t), second).doit())
