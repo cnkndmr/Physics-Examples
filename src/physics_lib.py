@@ -35,39 +35,3 @@ def append_tuple_to_list(a,b,c):
         temp_tuple += (b(i),i)
         c.append(temp_tuple)
     return
-
-def pprints(func, *funcs, **kwargs):
-    """Reference: https://butterflyofdream.wordpress.com/
-    
-    Parameters
-    ==========
-    **kwargs
-    output_style : display, pprint, print, latex
-    
-    Examples
-    ========
-    pprints("f(x)",f,
-            "collect(f,x)=",collect(f,x),
-            output_style="pprint")
-    """
-    output_style=kwargs.get("output_style","pprint")
-    if output_style=="display":
-        display(func)
-        if funcs is None: return
-        for f in funcs:
-            display(f)
-    elif output_style=="pprint":
-        pprint(func)
-        if funcs is None: return
-        for f in funcs:
-            pprint(f)
-    elif output_style=="print":
-        print(func)
-        if funcs is None: return
-        for f in funcs:
-            print(f)
-    elif output_style=="latex":
-        print(func)
-        if funcs is None: return
-        for f in funcs:
-            print(latex(f))
